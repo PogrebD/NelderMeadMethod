@@ -1,34 +1,36 @@
 #include "Operations.h"
 #include <iostream>
+#include <iomanip>
 
 Point Operations::CG(vector<Point> x)
 {
 	double bufx, bufy;
 	Point newPoint;
-	for (int i = 0; i < config::n; i++)
-	{
-		bufx = x[0].x + x[1].x;
-		bufy = x[0].y + x[1].y;
-	}
-	newPoint.x = (bufx) / config::n;
-	newPoint.y = (bufy) / config::n;
+	//for (int i = 0; i < config::n; i++)
+	//{
+	//	bufx = x[0].x + x[1].x;
+	//	bufy = x[0].y + x[1].y;
+	//}
+	//newPoint.x = (bufx) / config::n;
+	//newPoint.y = (bufy) / config::n;
+
+	newPoint.x = (x[0].x + x[1].x) / config::n;
+	newPoint.y = (x[0].y + x[1].y) / config::n;
+
 	return newPoint;
 }
 
 double Operations::CalcDelta(vector<Point> x, Point x_gc)
 {
-	double buf = 0, func_gc = DefinePoints::fun(x_gc);
-
+	double buf = 0; 
 	for (int i = 0; i < config::n + 1; i++)
 	{
-		double func = DefinePoints::fun(x[i]);
-		buf += (func - func_gc) * (func - func_gc);
+		buf += (x[i].f - x_gc.f) * (x[i].f - x_gc.f);
 	}
 	buf /= config::n + 1;
 	
 	return sqrt(buf);
 }
-
 
 Point Operations::Reflection(Point x_gc, Point x_h)
 {
@@ -71,6 +73,6 @@ void Operations::test(vector<Point> x)
 	{
 		cout << x[i].x << " " << x[i].y << "   ";
 	}
-	cout << endl << DefinePoints::fun(x[0]) << " " << DefinePoints::fun(x[1]) << " " << DefinePoints::fun(x[2]) << " " << endl << endl;
+	cout << endl << setprecision(10) << x[0].f << " " << setprecision(10) << x[1].f << " " << setprecision(10) << x[2].f << " " << endl << endl;
 
 }

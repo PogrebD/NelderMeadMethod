@@ -127,14 +127,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BarrierFunctionsMethod.cpp" />
     <ClCompile Include="DefinePoints.cpp" />
+    <ClCompile Include="FindMin.cpp" />
     <ClCompile Include="NelderMeadMethod.cpp" />
     <ClCompile Include="Operations.cpp" />
+    <ClCompile Include="ShtrafFunctionsMethod.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BarrierFunctionsMethod.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="DefinePoints.h" />
+    <ClInclude Include="FindMin.h" />
     <ClInclude Include="Operations.h" />
+    <ClInclude Include="ShtrafFunctionsMethod.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
